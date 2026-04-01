@@ -1,0 +1,21 @@
+{
+    "name": "KAVACH – Scam Shield",
+    "short_name": "KAVACH",
+    "description": "Real-Time Scam Shield for Rural India. Detect fake UPI screenshots, fraudulent QR codes, and phishing websites.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0a0e27",
+    "theme_color": "#0a0e27",
+    "orientation": "portrait-primary",
+    "scope": "/",
+    "lang": "en",
+    "categories": ["finance", "security", "utilities"],
+    "icons": [
+        {
+            "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ]
+}

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0dc8f2",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#101f22",
+                        "accent-dark": "#1a3136",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .scan-line {
+            height: 2px;
+            background: linear-gradient(to right, transparent, #0dc8f2, transparent);
+            box-shadow: 0 0 15px #0dc8f2;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            animation: scan 3s linear infinite;
+        }
+        @keyframes scan {
+            0% { top: 0%; }
+            50% { top: 100%; }
+            100% { top: 0%; }
+        }
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(13, 200, 242, 0.1), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between border-b border-accent-dark px-6 py-4 sticky top-0 bg-background-dark/80 backdrop-blur-md z-50">
+<div class="flex items-center gap-3">
+<div class="text-primary">
+<span class="material-symbols-outlined text-3xl">shield_person</span>
+</div>
+<h1 class="text-lg font-bold tracking-tight">QR Code Scanner</h1>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center justify-center rounded-xl h-10 w-10 bg-accent-dark hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-primary">history</span>
+</button>
+<button class="flex items-center justify-center rounded-xl h-10 w-10 bg-accent-dark hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-primary">info</span>
+</button>
+</div>
+</header>
+<main class="flex-1 max-w-lg mx-auto w-full px-4 py-6 flex flex-col gap-6">
+<!-- Camera Viewfinder Section -->
+<div class="relative group">
+<div class="relative aspect-square w-full bg-black rounded-xl overflow-hidden border-2 border-accent-dark">
+<!-- Placeholder for Camera Stream -->
+<div class="absolute inset-0 bg-cover bg-center opacity-60" data-alt="Cyberpunk style glowing payment terminal at a store counter" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBIx93jaQ_jkqt8EfBZQIyemx1CHwBJD3rtKS0z2lahVTdvPLy83yPXjR0YuTJG5V2PixTbzvudSyDBOQ5JY5JdubNN8s8HuF1bDNRglmjDzYB97QwnUMt4OE7-MOHZ1jHUuR2QSL3W74BLCQxdGoSoLrF5Wm2pEgI8E5bAdsAlkCMZepKTjXsncup4C4PkcsgxLXQj16XnaP2KX3MBYs8jPXU9OmiZfCyLwx4w_jbkjJeTtqRaY3kXJV4z74kJmYCJw5ivcn_wTcU')"></div>
+<!-- Scanning UI Overlay -->
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-64 h-64 border-2 border-primary/40 rounded-lg relative overflow-hidden">
+<div class="scan-line"></div>
+<!-- Corner Markers -->
+<div class="absolute top-0 left-0 w-6 h-6 border-t-4 border-l-4 border-primary"></div>
+<div class="absolute top-0 right-0 w-6 h-6 border-t-4 border-r-4 border-primary"></div>
+<div class="absolute bottom-0 left-0 w-6 h-6 border-b-4 border-l-4 border-primary"></div>
+<div class="absolute bottom-0 right-0 w-6 h-6 border-b-4 border-r-4 border-primary"></div>
+</div>
+</div>
+<!-- Status Badge -->
+<div class="absolute top-4 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-primary/30 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-xs font-medium uppercase tracking-widest text-primary">Scanning for threats</span>
+</div>
+</div>
+<!-- Gallery Upload Button -->
+<div class="flex justify-center -mt-6 relative z-10">
+<button class="flex items-center gap-2 px-6 py-3 bg-accent-dark hover:bg-accent-dark/80 rounded-xl border border-primary/20 shadow-xl transition-all group active:scale-95">
+<span class="material-symbols-outlined text-primary">image</span>
+<span class="text-sm font-semibold">Upload QR Image</span>
+</button>
+</div>
+</div>
+<!-- Decoding Progress (Visible during scan) -->
+<div class="flex flex-col gap-3 p-4 bg-accent-dark/30 rounded-xl border border-accent-dark">
+<div class="flex justify-between items-center">
+<span class="text-sm font-medium text-slate-400">Decoding AI Security</span>
+<span class="text-sm font-bold text-primary">82%</span>
+</div>
+<div class="h-1.5 w-full bg-accent-dark rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 82%"></div>
+</div>
+<p class="text-[10px] text-slate-500 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">verified_user</span>
+                        Verifying merchant certificate against global fraud database
+                    </p>
+</div>
+<!-- Payment Details Card -->
+<div class="bg-accent-dark/50 rounded-xl border border-primary/10 overflow-hidden">
+<div class="p-4 border-b border-accent-dark flex justify-between items-start">
+<div>
+<p class="text-xs text-slate-400 uppercase tracking-wider mb-1">Detected Merchant</p>
+<h3 class="text-lg font-bold">Cloud9 Cafe &amp; Bistro</h3>
+<p class="text-sm text-primary font-mono">cloud9cafe@okaxis</p>
+</div>
+<div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-primary text-3xl">store</span>
+</div>
+</div>
+<div class="p-4 grid grid-cols-2 gap-4">
+<div class="flex flex-col">
+<span class="text-xs text-slate-400">Amount</span>
+<span class="text-xl font-bold">₹450.00</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-xs text-slate-400">Trust Score</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-green-400 text-sm">shield</span>
+<span class="text-green-400 font-bold">98/100</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Risk Indicator -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between px-2">
+<h4 class="text-sm font-semibold uppercase tracking-widest text-slate-400">Safety Analysis</h4>
+<span class="text-xs px-2 py-0.5 rounded bg-green-500/20 text-green-400 font-bold border border-green-500/30">LOW RISK</span>
+</div>
+<div class="relative h-4 w-full bg-accent-dark rounded-full flex overflow-hidden">
+<div class="h-full bg-green-500 w-[70%]"></div>
+<div class="h-full bg-yellow-500 w-[20%]"></div>
+<div class="h-full bg-red-500 w-[10%]"></div>
+<!-- Marker -->
+<div class="absolute top-0 h-full w-1 bg-white shadow-[0_0_10px_white] left-[15%]"></div>
+</div>
+<div class="flex justify-between text-[10px] text-slate-500 px-1 font-bold">
+<span>SAFE</span>
+<span>CAUTION</span>
+<span>DANGER</span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="mt-auto flex flex-col gap-3 pb-8">
+<button class="w-full py-4 bg-primary text-background-dark font-bold rounded-xl flex items-center justify-center gap-2 hover:brightness-110 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined">payments</span>
+                        Open in UPI App
+                    </button>
+<button class="w-full py-4 bg-transparent border border-red-500/30 text-red-400 font-bold rounded-xl hover:bg-red-500/10 active:scale-[0.98] transition-all">
+                        Cancel Payment
+                    </button>
+</div>
+</main>
+</div>
+</div>
+</body></html>

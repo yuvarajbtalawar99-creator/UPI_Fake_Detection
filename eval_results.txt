@@ -1,0 +1,50 @@
+KAVACH – QR Code Detector Evaluation Pipeline
+
+Dataset loaded:
+  Safe samples : 6
+  Fake samples : 40
+  Total        : 46
+
+Processing safe samples...
+Processing fake samples...
+
+============================================================
+  KAVACH QR CODE DETECTOR — EVALUATION RESULTS
+============================================================
+
+  Accuracy  : 0.9130 (91.3%)
+  Precision : 1.0000
+  Recall    : 0.9000
+  F1-Score  : 0.9474
+
+  Confusion Matrix:
+                  Predicted Safe  Predicted Fraud
+  Actual Safe   :          6               0
+  Actual Fraud  :          4              36
+
+  Classification Report:
+              precision    recall  f1-score   support
+
+        Safe       0.60      1.00      0.75         6
+       Fraud       1.00      0.90      0.95        40
+
+    accuracy                           0.91        46
+   macro avg       0.80      0.95      0.85        46
+weighted avg       0.95      0.91      0.92        46
+
+
+  [!] False Negatives (4 fake images missed):
+    - fake_007.png  (score=20, status=safe)
+    - fake_017.png  (score=20, status=safe)
+    - fake_027.png  (score=20, status=safe)
+    - fake_037.png  (score=20, status=safe)
+
+  [*] Score Distribution for Correctly Blocked Scams (TP):
+    - Min Score: 50
+    - Max Score: 100
+    - Avg Score: 84.4
+    - Scores 80-90%: 15 samples
+    - Scores 91-100%: 14 samples
+    - Scores < 80%:    7 samples
+
+============================================================

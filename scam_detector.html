@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KAVACH | Screenshot Scam Detector</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0dc8f2",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#0a1114",
+                        "slate-custom": "#1a2c32",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .glass {
+            background: rgba(13, 200, 242, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(13, 200, 242, 0.1);
+        }
+        .scanning-line {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #0dc8f2, transparent);
+            box-shadow: 0 0 15px #0dc8f2;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between border-b border-primary/10 px-6 py-4 lg:px-20 bg-background-dark/80 backdrop-blur-md sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<div class="flex items-center justify-center size-10 rounded-lg bg-primary/20 text-primary">
+<span class="material-symbols-outlined text-3xl">shield</span>
+</div>
+<div class="flex flex-col">
+<h2 class="text-xl font-bold leading-tight tracking-tight text-slate-100 uppercase">KAVACH</h2>
+<p class="text-[10px] text-primary font-bold tracking-[0.2em] uppercase leading-none">Rural Safety Suite</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center rounded-xl size-10 bg-slate-custom text-slate-100 hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="flex items-center justify-center rounded-xl size-10 bg-slate-custom text-slate-100 hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<main class="flex-1 max-w-5xl mx-auto w-full p-4 lg:p-10 space-y-8">
+<!-- Hero Header -->
+<div class="flex flex-col gap-2">
+<h1 class="text-3xl md:text-4xl font-black text-slate-100 tracking-tight">Screenshot Scam Detector</h1>
+<p class="text-slate-400 text-lg">Verify payment receipts instantly to protect your business.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Upload & Preview -->
+<div class="lg:col-span-7 space-y-6">
+<!-- Upload Zone -->
+<div class="group relative flex flex-col items-center gap-6 rounded-xl border-2 border-dashed border-primary/30 bg-primary/5 px-6 py-12 hover:border-primary/60 transition-all cursor-pointer">
+<div class="flex flex-col items-center gap-3 text-center">
+<div class="size-16 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-2">
+<span class="material-symbols-outlined text-4xl">cloud_upload</span>
+</div>
+<p class="text-xl font-bold text-slate-100">Upload Payment Receipt</p>
+<p class="text-slate-400 text-sm max-w-xs">Drag and drop your screenshot here or use the camera to scan a physical copy.</p>
+</div>
+<div class="flex gap-3 w-full max-w-sm">
+<button class="flex-1 flex items-center justify-center gap-2 rounded-xl h-12 px-6 bg-primary text-background-dark font-bold hover:brightness-110 transition-all">
+<span class="material-symbols-outlined">photo_camera</span>
+<span>Camera</span>
+</button>
+<button class="flex-1 flex items-center justify-center gap-2 rounded-xl h-12 px-6 bg-slate-custom text-slate-100 font-bold hover:bg-slate-700 transition-all">
+<span>Browse Files</span>
+</button>
+</div>
+</div>
+<!-- Live Preview Area -->
+<div class="relative rounded-xl overflow-hidden bg-slate-custom/50 border border-primary/10 aspect-[4/3] group">
+<div class="absolute inset-0 flex items-center justify-center">
+<img class="w-full h-full object-cover opacity-60" data-alt="Sample mobile payment receipt screenshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3ha1LN8Na3BLhEGacyo8sjNkcNJcIeTAmk4KWc3w1YXMy2vAoW1F_zh9GnUaFbSD7goNR_-8zP-rgJoLDsFjhSE9KFy_g1j6b8wd-ppVL9O3iowsAidos5kYl7Ktb2GCXsrZw_cRGKn0umcL80pUks1svmqG760I9OH2fE9YOX4l30qzXapgnMVs4xQM-MEd7rimpxww4g0wsF8tTDFD3DAkPEiEFPYN_SVHhHCBzfYrKuOIz6n0vl4Gb_t399A0frcAYpvJece0"/>
+</div>
+<!-- Scanning Animation Overlay -->
+<div class="absolute inset-0 bg-primary/5 pointer-events-none overflow-hidden">
+<div class="scanning-line absolute w-full top-1/4 animate-[scan_3s_ease-in-out_infinite]"></div>
+</div>
+<div class="absolute bottom-4 left-4 right-4 flex justify-between items-center bg-background-dark/80 backdrop-blur-md p-4 rounded-lg border border-primary/20">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">image</span>
+<span class="text-sm font-medium text-slate-100">receipt_1024.jpg</span>
+</div>
+<button class="text-xs font-bold text-primary uppercase tracking-wider">Change</button>
+</div>
+</div>
+<button class="w-full flex items-center justify-center gap-3 rounded-xl h-16 bg-primary text-background-dark text-lg font-black uppercase tracking-widest shadow-lg shadow-primary/20 hover:scale-[1.01] transition-transform">
+<span class="material-symbols-outlined text-2xl">analytics</span>
+                            Analyze Receipt
+                        </button>
+</div>
+<!-- Right Column: Results & Analysis -->
+<div class="lg:col-span-5 space-y-6">
+<!-- Result Panel (Status: Suspicious example) -->
+<div class="glass rounded-xl p-8 flex flex-col items-center gap-8 border-yellow-500/30">
+<!-- Risk Score Meter -->
+<div class="relative size-48 flex items-center justify-center">
+<svg class="size-full -rotate-90" viewbox="0 0 100 100">
+<circle class="text-slate-800" cx="50" cy="50" fill="transparent" r="40" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-yellow-500" cx="50" cy="50" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="62.8" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-4xl font-black text-slate-100">75</span>
+<span class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Risk Score</span>
+</div>
+</div>
+<!-- Status Badge -->
+<div class="px-6 py-2 rounded-full bg-yellow-500/20 border border-yellow-500 text-yellow-500 font-black uppercase tracking-widest text-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">warning</span>
+                                Suspicious
+                            </div>
+<!-- Fraud Indicators -->
+<div class="w-full space-y-4">
+<p class="text-sm font-bold text-slate-100 uppercase tracking-wider px-1">Detected Flaws</p>
+<div class="space-y-3">
+<div class="p-4 rounded-lg bg-red-500/10 border border-red-500/20 flex items-start gap-3">
+<span class="material-symbols-outlined text-red-500">error</span>
+<div>
+<p class="text-sm font-bold text-slate-100">Missing Reference ID</p>
+<p class="text-xs text-slate-400 mt-1">Official bank reference number is missing or incorrectly formatted.</p>
+</div>
+</div>
+<div class="p-4 rounded-lg bg-yellow-500/10 border border-yellow-500/20 flex items-start gap-3">
+<span class="material-symbols-outlined text-yellow-500">edit_square</span>
+<div>
+<p class="text-sm font-bold text-slate-100">Font Inconsistency</p>
+<p class="text-xs text-slate-400 mt-1">The text for 'Amount' appears to be digitally altered.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Expandable Section -->
+<details class="w-full group">
+<summary class="flex items-center justify-between p-4 rounded-lg bg-slate-custom cursor-pointer list-none hover:bg-slate-700 transition-colors">
+<span class="text-sm font-bold text-slate-100">How we verified this</span>
+<span class="material-symbols-outlined text-slate-400 group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="p-4 text-xs text-slate-400 leading-relaxed border-x border-b border-slate-custom rounded-b-lg">
+                                    Our AI checked the metadata, pixel consistency, and compared the layout with known genuine templates from major banks and UPI apps. The digital artifacts found suggest this image was edited using a mobile photo editor.
+                                </div>
+</details>
+</div>
+<!-- Quick Tips -->
+<div class="rounded-xl p-6 bg-slate-custom/30 border border-primary/5">
+<h3 class="text-sm font-bold text-primary mb-4 flex items-center gap-2 uppercase tracking-widest">
+<span class="material-symbols-outlined text-xl">lightbulb</span>
+                                Rural Safety Tips
+                            </h3>
+<ul class="space-y-3 text-sm text-slate-300">
+<li class="flex gap-3">
+<span class="text-primary">•</span>
+                                    Always check your own bank balance before handing over goods.
+                                </li>
+<li class="flex gap-3">
+<span class="text-primary">•</span>
+                                    SMS alerts can be faked; trust only the app notifications.
+                                </li>
+</ul>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation for Rural Mobile Users -->
+<nav class="lg:hidden sticky bottom-0 z-50 bg-background-dark/95 backdrop-blur-lg border-t border-primary/10 flex justify-around p-4">
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-bold">HOME</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined">document_scanner</span>
+<span class="text-[10px] font-bold">SCANNER</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">history</span>
+<span class="text-[10px] font-bold">HISTORY</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">help</span>
+<span class="text-[10px] font-bold">HELP</span>
+</button>
+</nav>
+</div>
+</div>
+<style>
+        @keyframes scan {
+            0% { top: 0%; opacity: 0; }
+            5% { opacity: 1; }
+            95% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+    </style>
+</body></html>
