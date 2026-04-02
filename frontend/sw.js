@@ -3,16 +3,18 @@
    Network-first for pages, cache-first for assets
    ============================================ */
 
-const CACHE_NAME = 'kavach-v5';
+const CACHE_NAME = 'kavach-v6';
 const STATIC_ASSETS = [
-    '/static/css/styles.css',
-    '/static/js/app.js',
-    '/static/js/i18n.js',
-    '/static/js/camera.js',
-    '/static/js/screenshot.js',
-    '/static/js/qrcode.js',
-    '/static/js/url.js',
+    '/css/styles.css',
+    '/js/app.js',
+    '/js/i18n.js',
+    '/js/camera.js',
+    '/js/screenshot.js',
+    '/js/qrcode.js',
+    '/js/url.js',
     '/manifest.json',
+    '/icons/icon-192x192.png',
+    '/icons/icon-512x512.png',
 ];
 
 // Install: Cache static assets (but NOT the HTML page)
